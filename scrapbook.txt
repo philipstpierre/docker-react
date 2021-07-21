@@ -1,0 +1,32 @@
+docker build -f Dockerfile.dev .
+
+docker run -p 3000:3000 -v /home/node/app/node_modules -v ~/training/docker/frontend:/home/node/app c2449fc6c580
+
+docker exec -it 193352a5db8f sh
+
+docker-compose down && docker-compose up --build
+
+docker exec -it a905d125e70c npm run test
+
+Instead of this:
+
+FROM node:alpine as builder
+WORKDIR '/app'
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
+ 
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html
+Do this:
+
+FROM node:alpine
+WORKDIR '/app'
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
+ 
+FROM nginx
+COPY --from=0 /app/build /usr/share/nginx/html
