@@ -8,6 +8,7 @@ docker-compose down && docker-compose up --build
 
 docker exec -it a905d125e70c npm run test
 
+Named Builders and AWS
 Instead of this:
 
 FROM node:alpine as builder
@@ -30,3 +31,6 @@ RUN npm run build
  
 FROM nginx
 COPY --from=0 /app/build /usr/share/nginx/html
+
+docker run USERNAME/docker-react npm run test -- --coverage
+docker run -e CI=true USERNAME/docker-react npm run test
