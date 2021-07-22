@@ -3,7 +3,7 @@
     "containerDefinitions": [
       {
         "name": "docker-react",
-        "image": "stpiep/docker-react:latest",
+        "image": "stpiep/docker-react",
         "essential": true,
         "memory": 512,
         "portMappings": [
