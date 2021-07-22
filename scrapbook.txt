@@ -37,3 +37,9 @@ docker run -e CI=true USERNAME/docker-react npm run test
 
 access_key_id: $AWS_ACCESS_KEY
 secret_access_key: $AWS_SECRET_KEY
+
+key id
+AKIAXU6MORFYGFZ23DBI
+
+secret
+w7v4gaVOZpvot+i+P+Z6N7/etJTVo5pWgK/yZAc7
